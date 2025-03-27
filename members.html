@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The So4Js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family:'Orbitron',sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: fixed; /* Make header sticky */
+            top: 0; /* Stick to top of viewport */
+            left: 0; /* Align to left */
+            width: 100%; /* Span the entire width */
+            background-color: transparent; /* Transparent background */
+            z-index: 2; /* Ensure it's on top of other content */
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            margin-left: 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            color: #f00;
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin-right: 50px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #f00;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #f00;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        /* Video Background Styles */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden; /* Hide any potential overflow */
+        }
+
+        .background video {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute; /* Important for proper layering */
+            top: 0;
+            left: 0;
+        }
+
+        /* Meet Our Team Section Styles */
+        .meet-our-team {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            padding-bottom: 0;
+            margin-top: 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .meet-our-team h2 {
+            font-size: 3em;
+            color:  rgb(194, 40, 40);
+            margin-bottom: 20px;
+        }
+
+        .meet-our-team .team-member p {
+            font-size: 1.5em;
+            max-width: 180px;
+            color: rgb(255, 247, 248);
+        }
+        .meet-our-team .team-member ::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(1px);
+            background: transparent;
+            z-index: -1;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+
+         /* Contact Us Section Styles */
+         .contact-us {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align content to the left */
+            padding: 40px;
+            position: relative;
+            z-index: 1;
+            text-align: left; /* Ensure text is left-aligned */
+            max-width: 800px; /* Limit the width for better readability */
+            margin: 0 auto; /* Center the section horizontally */
+        }
+
+        .contact-us h2 {
+            font-size: 2.5em;
+            color: #f00;
+            margin-bottom: 30px;
+            text-align: center; /* Center the heading */
+            width: 100%; /* Make sure the heading spans the full width */
+        }
+
+        .contact-us p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-us .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* Space between each contact info item */
+        }
+     
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo">The So4Js</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="Aboutus.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Video Background -->
+    <div class="background">
+        <video autoplay loop muted>
+            <source src="controller.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Meet Our Team Section -->
+    <section id="meet-our-team" class="meet-our-team">
+        <h2>MEET OUR TEAM</h2>
+        <div class="team-container">
+            <div class="team-member">
+                
+                <p><strong>Mary Grace Sanchez</strong></p>
+            </div>
+            <div class="team-member">
+                
+                <p><strong>John Prince Ballescas</strong></p>
+            </div>
+            <div class="team-member">
+                
+                <p><strong>Jesli Lawrence Guiang</strong></p>
+            </div>
+            <div class="team-member">
+                
+                <p><strong>Jennyvie Junsay</strong></p>
+            </div>
+            <div class="team-member">
+               
+                <p><strong>Reymark Ordas</strong></p>
+            </div>
+            <div class="team-member">
+                <p><strong>Johartt Ismael Pandita</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact-us" class="contact-us">
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+123-456-7890</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-globe"></i>
+                <span>www.TheSo4Js.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>TheSo4Js@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>123 Anywhere ST., Any City, ST 12345</span>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

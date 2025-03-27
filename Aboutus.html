@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The So4Js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: fixed; /* Make header sticky */
+            top: 0; /* Stick to top of viewport */
+            left: 0; /* Align to left */
+            width: 100%; /* Span the entire width */
+            background-color: transparent; /* Transparent background */
+            z-index: 2; /* Ensure it's on top of other content */
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5em;
+            margin-left: 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            color: #f00;
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin-right: 50px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #f00;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #f00;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Video Background Styles */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden; /* Hide any potential overflow */
+        }
+
+        .background video {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute; /* Important for proper layering */
+            top: 0;
+            left: 0;
+        }
+
+        /* About Us Section Styles */
+        .about-us {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            position: relative; /* Ensure content is on top of background */
+            z-index: 1; /* Ensure content is on top of background */
+        }
+
+        .about-us h2 {
+            font-size: 2.5em;
+            color:rgb(194, 40, 40);
+            margin-bottom: 0px;
+        }
+
+        .about-us p {
+            font-size: 1em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .about-us p {
+            font-size: 1.3em;
+            color: rgb(255, 255, 255);
+            margin-bottom: 20px;
+        }
+
+        .about-us::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(2.5px);
+            background: transparent;
+            z-index: -1;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        /* Image Styles */
+        
+
+        .learn-more {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, rgb(49, 0, 0), rgb(188, 65, 20));
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .learn-more:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgb(255, 1, 1);
+        }
+
+        .learn-more::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 0, 0, 0.349);
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            transition: width 0.3s ease, height 0.3s ease;
+        }
+
+        .learn-more:hover::after {
+            width: 300px;
+            height: 300px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo">The So4Js</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="Service.html">Service</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Video Background -->
+    <div class="background">
+        <video autoplay loop muted>
+            <source src="controller.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="about-us">
+        <h2>ABOUT US</h2>
+       
+        <p><strong>
+            Welcome to So4Js! We are an innovative platform dedicated to expanding knowledge and skills in the field of technology. The So4Js is a diverse team of passionate researchers and a group from Grade 11 ICT students of Tapinac Senior High School, aims to share knowledge and inspiration with fellow ICT students. The goal of So4Js project is to provide a services and resources that will help individuals to enhance their programming skills and also to find encouragement, motivation, fun and excitement in programming field.
+        </strong></p>
+        <a href="members.html" class="learn-more">The So4Js :]</a>
+    </section>
+</body>
+</html>

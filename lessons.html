@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TheSo4Js</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            transition: transform 0.5s ease-out;
+            
+        }
+        header {
+            padding: 20px;
+            background-color: transparent;
+            color: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            animation: slideDown 0.5s ease-out;
+        }
+        header h1 {
+            margin: 0;
+            text-align: center;
+        }
+        header button {
+            background-color: #ff0000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            left: 20px;
+            transition: background-color 0.3s ease;
+        }
+        header button:hover {
+            background-color: #0088ff42;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: rgba(0, 0, 0, 0.288); /* White background with 80% opacity */
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            flex: 1 1 300px; /* Flex-grow, flex-shrink, and flex-basis */
+            max-width: 300px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            
+        }
+        h2 {
+            color: #ffffff;
+            font-size: 24px;
+            justify-self: center;
+        }
+
+
+        .sections-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+
+        /* Video Background Styles */
+.background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden; /* Hide any potential overflow */
+}
+
+.background video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute; /* Important for proper layering */
+    top: 0;
+    left: 0;
+}
+
+.responsive-logo {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+
+        .hidden {
+            display: none;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        .fade-out {
+            animation: fadeOut 0.5s ease-in-out;
+        }
+        #js-table {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #00000047;
+            border: 1px solid #00000083;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        #js-table td {
+            padding: 10px;
+            text-align: center;
+            font-size: 18px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        ul li {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #ffffff00;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease;
+            color: white;
+        }
+        ul li:hover {
+            background-color: #711010bb;
+        }
+
+        .back-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.back-button:hover {
+    background-color: #077550a0;
+}
+
+body.no-select {
+    user-select: none; /* Disable text selection */
+}
+
+
+#js-table {
+    cursor: move;
+    transition: left 0.2s ease, top 0.2s ease; /* Smooth transition for movement */
+}
+
+
+
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0;
+            }
+        }
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+        .slide-out {
+            animation: slideOut 0.5s forwards;
+        }
+
+        @keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.fade-out {
+    animation: fadeOut 0.2s ease-in-out; /* Faster fade-out animation */
+}
+
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <button onclick="goBack()">Back</button>
+        <h1>Lessons</h1>
+    </header>
+
+    
+    <div class="sections-container">
+        <section id="html-section">
+            <h2 id="html-title">Introduction to HTML</h2>
+            <img src="html logo.png" alt="HTML Logo" class="responsive-logo">
+            <ul id="html-topics">
+                <li class="topic" data-topic="1" data-video="https://www.youtube.com/embed/it1rTvBcfRg?si=QCGAWNC1otpsEEgU">Topic 1: Introduction</li>
+                <li class="topic" data-topic="2" data-video="https://www.youtube.com/embed/bBP0ckEln4Y">Topic 2: Editors</li>
+                <li class="topic" data-topic="3" data-video="https://www.youtube.com/embed/vIoO52MdZFE?si=FLTTvMmpQ-Jkrk7_">Topic 3: Elements</li>
+                <li class="topic" data-topic="4" data-video="https://www.youtube.com/embed/yMX901oVtn8?si=txvdowjZo75N3jz0">Topic 4: Attributes</li>
+                <li class="topic" data-topic="5" data-video="https://www.youtube.com/embed/9gHPpwq6IaY?si=pXPdM3fHt-FnQlRw">Topic 5: Headings</li>
+                <li class="topic" data-topic="6" data-video="https://www.youtube.com/embed/qis4kAOThLw?si=yPdilETm59VMJYOJ">Topic 6: Paragraphs</li>
+                <li class="topic" data-topic="7" data-video="https://www.youtube.com/embed/twdNPJfbj_8?si=Iy2laANVhBt3avGd">Topic 7: Styles</li>
+                <li class="topic" data-topic="8" data-video="https://www.youtube.com/embed/7FqQLqNIEY8?si=8qWOdvkLRg9cNunN">Topic 8: Formatting</li>
+                <li class="topic" data-topic="9" data-video="https://www.youtube.com/embed/229HYq40vaA?si=zermqrQS80dSFUXc">Topic 9: Comments</li>
+                <li class="topic" data-topic="10" data-video="https://www.youtube.com/embed/zCrolmdqmF8?si=rMYtQ1SlMOT_aGzX">Topic 10: Colors</li>
+                <li class="topic" data-topic="11" data-video="https://www.youtube.com/embed/cZHp-Oozg6I?si=gJY0JWnZSfLapDAj">Topic 11: CSS</li>
+                <li class="topic" data-topic="12" data-video="https://www.youtube.com/embed/HA6bByKdAQM?si=Ho7fD2T0SUMQ9dch">Topic 12: Links</li>
+                <li class="topic" data-topic="13" data-video="https://www.youtube.com/embed/FmoYRiepmOE?si=PtWJlTQqZ0DRQemh">Topic 13: Images</li>
+                <li class="topic" data-topic="14" data-video="https://www.youtube.com/embed/e62D-aayveY?si=LNHmNN9oHqiFsgov">Topic 14: Tables</li>
+                <li class="topic" data-topic="15" data-video="https://www.youtube.com/embed/-QuK8taGLCs?si=adsjGBnkVrJwjPFO">Topic 15: List</li>
+                <li class="topic" data-topic="16" data-video="https://www.youtube.com/embed/M4n-WSkehmI?si=RUeKNihGbtHyQAOZ">Topic 16: Block and Inline</li>
+                <li class="topic" data-topic="17" data-video="https://www.youtube.com/embed/tWIkDOJo0Ts?si=tqRiaKqlxtBQXfPw">Topic 17: Classes</li>
+                <li class="topic" data-topic="18" data-video="https://www.youtube.com/embed/rZ0k516qZmc?si=eCIZbszC-t06JsTv">Topic 18: Id</li>
+                <li class="topic" data-topic="19" data-video="https://www.youtube.com/embed/qP23O70ve7k?si=xYtDvc4XTe2RD0kL">Topic 19: Iframes</li>
+                <li class="topic" data-topic="20" data-video="https://www.youtube.com/embed/uSgcWDkwc3U?si=3FVcevMfTUZfD86O">Topic 20: JavaScript</li>
+                <li class="topic" data-topic="21" data-video="https://www.youtube.com/embed/WeuVX5x2MJE?si=y99idyw5mQoqt8gM">Topic 21: Head</li>
+                <li class="topic" data-topic="22" data-video="https://www.youtube.com/embed/VLeERv_dR6Q?si=dTddsKtvz_KCNNyW">Topic 22: Forms</li>
+            </ul>
+        </section>
+    
+        <section id="css-section">
+            <h2 id="css-title">Styling with CSS</h2>
+            <img src="css logo.png" alt="CSS Logo" class="responsive-logo">
+            <ul id="css-topics">
+                <li class="topic" data-topic="1" data-video="https://www.youtube.com/embed/AGDDdsiZ0Ko?si=K7_dAOv_B5UoBYxt">Topic 1: Introduction</li>
+                <li class="topic" data-topic="2" data-video="https://www.youtube.com/embed/G8r00ZNopTE?si=sAb2dmnr-pZZkRoq">Topic 2: Syntax</li>
+                <li class="topic" data-topic="3" data-video="https://www.youtube.com/embed/ZNskBxLVOfs?si=7ivtNv2s0xG8FZuf">Topic 3: Simple Selectors</li>
+                <li class="topic" data-topic="4" data-video="https://www.youtube.com/embed/VSwaoQ3TFkQ?si=Im5e4ZULDdbBGX1V">Topic 4: How to add CSS to HTML</li>
+                <li class="topic" data-topic="5" data-video="https://www.youtube.com/embed/uVtEJD3vBEs?si=jbhqfFG-CjcuvKsK">Topic 5: Comments</li>
+                <li class="topic" data-topic="6" data-video="https://www.youtube.com/embed/q0uWmobMf6I?si=UXIjef6A73ITzLoM">Topic 6: Colors Introduction</li>
+                <li class="topic" data-topic="7" data-video="https://www.youtube.com/embed/6tbUo6PXc88?si=wlISYG6wgpEc1UD1">Topic 7: Colors RGB & RGBA</li>
+                <li class="topic" data-topic="8" data-video="https://www.youtube.com/embed/LLmCr_201GU?si=Sps37FdIav45RQ3u">Topic 8: Colors Hex</li>
+                <li class="topic" data-topic="9" data-video="https://www.youtube.com/embed/Vilk0BFQZ4Y?si=nxxx7WnY9EaHlXat">Topic 9: Colors HSL</li>
+                <li class="topic" data-topic="10" data-video="https://www.youtube.com/embed/-itttmX6HX0?si=JwicJI7iL6_2k7so">Topic 10: Background Colors</li>
+                <li class="topic" data-topic="11" data-video="https://www.youtube.com/embed/FMyU_h8m-0c?si=0yJxwAKp6WrsTlqX">Topic 11: Background Images</li>
+                <li class="topic" data-topic="12" data-video="https://www.youtube.com/embed/k9dNFtC2F8A?si=jOqC0b5QcQ2vmP3S">Topic 12: Background Repeat and Position</li>
+                <li class="topic" data-topic="13" data-video="https://www.youtube.com/embed/lXs8BRnrW_M?si=P2855haXH24A7nC4">Topic 13: Background Attachment</li>
+                <li class="topic" data-topic="14" data-video="https://www.youtube.com/embed/rSEKmi5tR9E?si=WUF7EUyzNneR-zC-">Topic 14: Background ShortHand</li>
+            </ul>
+        </section>
+    
+        <section id="js-section">
+            <h2 id="js-title">Introduction to JavaScript</h2>
+            <img src="js logo.webp" alt="JavaScript Logo" class="responsive-logo">
+            <ul id="js-topics">
+                <li class="topic" data-topic="1" data-video="https://www.youtube.com/embed/t54pgbVy6t0?si=gOZI5kV0rpmVs7Mu">Topic 1: Introduction</li>
+                <li class="topic" data-topic="2" data-video="https://www.youtube.com/embed/zTEU-9kP66c?si=SlTzlFGYeQ04KxR_">Topic 2: Basics</li>
+                <li class="topic" data-topic="3" data-video="https://www.youtube.com/embed/VR9IZcPOijY?si=Q0J28vtFSGkPbQyG">Topic 3: Syntax</li>
+                <li class="topic" data-topic="4" data-video="https://www.youtube.com/embed/BP3d7meXCmc?si=_Fxpwqfh8WFizeTQ">Topic 4: Output</li>
+                <li class="topic" data-topic="5" data-video="https://www.youtube.com/embed/mgWktMxvL7g?si=38cuc7ac2pnnOagu">Topic 5: Comments</li>
+                <li class="topic" data-topic="6" data-video="https://www.youtube.com/embed/YF59k3gZeb4?si=_EsfuYAgalQ6pQiX">Topic 6: Variables</li>
+                <li class="topic" data-topic="7" data-video="https://www.youtube.com/embed/D3DqJrlckbs?si=wrLr-UF5m95IkdLE">Topic 7: Data Types</li>
+                <li class="topic" data-topic="8" data-video="https://www.youtube.com/embed/kFUqkaicfDw?si=X7pAYit9WeERXRFk">Topic 8: Type Casting</li>
+                <li class="topic" data-topic="9" data-video="https://www.youtube.com/embed/RbjB3SIaabM?si=PxdTyORnmsMBvQ-t">Topic 9: Operators</li>
+                <li class="topic" data-topic="10" data-video="https://www.youtube.com/embed/SkKmN9k5_mY?si=G1-XFKwmcLQfzW3y">Topic 10: Strings</li>
+            </ul>
+            <table id="js-table" class="hidden">
+                <tr>
+                    <td>
+                        <button class="back-button" onclick="hideTable()">X</button>
+                    </td>
+                </tr>
+                <tr><td id="js-content"></td></tr>
+            </table>
+        </section>
+    </div>
+    
+
+    <div class="background">
+        <video autoplay muted loop playsinline>
+            <source src="controller.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    
+    <script>
+        function goBack() {
+            document.body.classList.add('slide-out');
+            setTimeout(() => {
+                window.history.back();
+            }, 500); // Match the duration of the slide-out animation
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+    
+            sections.forEach(section => {
+                const topics = section.querySelector('ul');
+    
+                section.addEventListener('click', function(event) {
+                    if (!event.target.classList.contains('topic')) {
+                        toggleTopics(section, topics);
+                    }
+                });
+    
+                section.querySelectorAll('.topic').forEach(topic => {
+                    topic.addEventListener('click', function(event) {
+                        event.stopPropagation();
+                        const videoUrl = this.getAttribute('data-video');
+                        const table = document.getElementById('js-table');
+                        const content = document.getElementById('js-content');
+                        content.innerHTML = `<iframe width="560" height="315" src="${videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                        table.classList.remove('hidden');
+                        table.classList.remove('fade-out');
+                        table.classList.add('fade-in');
+                    });
+                });
+            });
+    
+            document.addEventListener('click', function(event) {
+                const table = document.getElementById('js-table');
+                if (!table.contains(event.target) && !event.target.classList.contains('topic')) {
+                    table.classList.remove('fade-in');
+                    table.classList.add('fade-out');
+                    setTimeout(() => {
+                        table.classList.add('hidden');
+                        document.getElementById('js-content').innerHTML = ''; // Clear the video content to stop the video
+                    }, 500); // Match the duration of the fade-out animation
+                }
+            });
+    
+            function toggleTopics(currentSection, topics) {
+                sections.forEach(section => {
+                    const sectionTopics = section.querySelector('ul');
+                    if (section !== currentSection) {
+                        sectionTopics.style.maxHeight = null;
+                    }
+                });
+    
+                if (topics.style.maxHeight) {
+                    topics.style.maxHeight = null;
+                } else {
+                    topics.style.maxHeight = topics.scrollHeight + "px";
+                }
+            }
+        });
+    
+        function hideTable() {
+            const table = document.getElementById('js-table');
+            const content = document.getElementById('js-content');
+            table.classList.remove('fade-in');
+            table.classList.add('fade-out');
+            setTimeout(() => {
+                table.classList.add('hidden');
+                content.innerHTML = ''; // Clear the video content to stop the video
+            }, 200); // Match the duration of the fade-out animation
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const table = document.getElementById('js-table');
+            let isDragging = false;
+            let offsetX, offsetY;
+    
+            table.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                offsetX = e.clientX - table.getBoundingClientRect().left;
+                offsetY = e.clientY - table.getBoundingClientRect().top;
+                table.style.cursor = 'grabbing';
+                document.body.classList.add('no-select'); // Disable text selection
+            });
+    
+            document.addEventListener('mousemove', function(e) {
+                if (isDragging) {
+                    table.style.left = `${e.clientX - offsetX}px`;
+                    table.style.top = `${e.clientY - offsetY}px`;
+                    table.style.transform = 'none';
+                }
+            });
+    
+            document.addEventListener('mouseup', function() {
+                isDragging = false;
+                table.style.cursor = 'move';
+                document.body.classList.remove('no-select'); // Re-enable text selection
+            });
+        });
+    </script>
+    
+    
+    
+</body>
+</html>

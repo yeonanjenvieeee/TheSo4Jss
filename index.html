@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The So4Js</title>
+    <link rel="stylesheet" href="Research.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: transparent;
+            z-index: 2;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            margin-left: 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #f00;
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin-right: 50px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #f00;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #f00;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding-top: 60px;
+        }
+
+        .main-title {
+            font-size: 3em;
+            color: rgb(194, 40, 40);
+            margin-bottom: 2px;
+            position: relative;
+        }
+
+        .main-title::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(1px);
+            background: transparent;
+            z-index: -1;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .main-title:hover::before {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .subtitle {
+            font-size: 3em;
+            color: rgb(255, 255, 255);
+            position: relative;
+        }
+
+        .subtitle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(1px);
+            background: transparent;
+            z-index: -1;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .subtitle:hover::before {
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .website-link {
+            color: #ffffff;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        /* Video Background Styles */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background video {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .website-link {
+    color: #ffffff;
+    text-decoration: none;
+    margin-top: 20px;
+    font-size: 1.2em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.website-link:hover {
+    color: #f00;
+    transform: scale(1.1);
+}
+        /* About YouTube Tutorials Section Styles */
+        .about-youtube {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-youtube h2 {
+            font-size: 2.5em;
+            color: rgb(194, 40, 40);
+            margin-bottom: 20px;
+        }
+
+        .about-youtube h2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(1px);
+            background: transparent;
+            z-index: -1;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .about-youtube p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-bottom: 30px;
+        }
+
+        .about-youtube .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .about-youtube .image-placeholder {
+            width: 200px;
+            height: 150px;
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        section {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo">The So4Js</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="Aboutus.html">About Us</a></li>
+                <li><a href="Service.html">Service</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <section id="home" class="main-content">
+        <h1 class="main-title">YOUTUBE</h1>
+        <h2 class="subtitle">A GUIDE THROUGH PROGRAMMING</h2>
+        <a href="http://www.YouTube.com" class="website-link">www.youtube.com</a>
+    </section>
+
+    <!-- About YouTube Tutorials Section -->
+    <section class="about-youtube">
+        <h2>ABOUT YOUTUBE TUTORIALS</h2>
+
+        <p>
+            YouTube tutorials are a treasure trove for aspiring programmers. They break down complex coding concepts into fun, bite-sized lessons that turn programming into an exciting journey. Whether you're learning HTML, CSS, or JavaScript, these tutorials offer clear, step-by-step guides that make coding accessible and engaging.
+        </p>
+       
+    </section>
+
+    <!-- Background Video -->
+    <div class="background"> 
+        <video autoplay muted loop playsinline>
+            <source src="controller.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        document.querySelector('.menu-button').addEventListener('click', function() {
+            document.querySelector('.sliding-menu').classList.add('active');
+            document.querySelector('.backdrop').classList.add('active');
+        });
+
+        document.querySelector('.backdrop').addEventListener('click', function() {
+            document.querySelector('.sliding-menu').classList.remove('active');
+            document.querySelector('.backdrop').classList.remove('active');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The So4Js</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #000;
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: transparent;
+            z-index: 2;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            margin-left: 10px;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        
+        .logo:hover {
+            color: #f00;
+            transform: scale(1.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin-right: 50px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+        
+        nav a:hover {
+            color: #f00;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #f00;
+            transition: width 0.3s ease;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Video Background Styles */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .background video {
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+
+
+        /* Our Mission Section Styles */
+        .our-mission {
+    position: relative;
+    padding: 50px 40px;  
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: transparent;
+        }
+
+        .our-mission h2 {
+            font-size: 4em;
+            color: #fff;
+            margin-bottom: 0px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .our-mission h2::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            width: 60px;
+            height: 5px;
+            background-color:  rgb(194, 40, 40);
+        }
+
+        .mission-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-box {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0px;
+        }
+
+        .mission-number {
+            background-color: #f00;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .mission-text {
+            flex: 1;
+        }
+
+        .mission-text p {
+            font-size: 1em;
+            line-height: 2;
+        }
+
+        .our-mission::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            backdrop-filter: blur(1px);
+            background: transparent;
+            z-index: -1;
+            border-radius: 10px;
+            transition: background 0.3s ease;
+        }
+         /* Our Services Section Styles */
+         .our-services {
+            position: top;
+            min-height: 100vh;
+            overflow: hidden;
+            background-color: transparent;
+        }
+
+        .our-services h2 {
+            font-size: 4em;
+            color: #fff;
+            margin-bottom: 0px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-box {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0px;
+        }
+
+        .service-number {
+            background-color: #f00;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .service-text {
+            flex: 1;
+        }
+
+        .service-text p {
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <div class="logo">The So4Js</div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Aboutus.html">About Us</a></li>
+                <li><a href="#">Service</a></li>
+                <li><a href="lessons.html">Lessons</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Video Background -->
+    <div class="background">
+        <video autoplay loop muted>
+            <source src="controller.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+   
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="our-mission">
+        <h2>OUR MISSION</h2>
+        <div class="mission-container">
+            <div class="mission-box">
+                <div class="mission-number">01</div>
+                <div class="mission-text">
+                    <p><strong>Enhance Learning Access: We aim to provide Grade 11 ICT students with reliable, high-quality YouTube tutorials that simplify programming concepts and make learning more accessible.</strong></p>
+                </div>
+            </div>
+            <div class="mission-box">
+                <div class="mission-number">02</div>
+                <div class="mission-text">
+                    <p><strong>Demystify Programming: Our goal is to break down complex coding topics into clear, step-by-step lessons, reducing barriers for beginners and fostering confidence in programming skills.</strong></p>
+                </div>
+            </div>
+            <div class="mission-box">
+                <div class="mission-number">03</div>
+                <div class="mission-text">
+                    <p><strong>Foster Continuous Improvement: We commit to regularly updating our content and design based on student feedback and evolving educational needs, ensuring our platform remains engaging and effective over time.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Mission Section -->
+    <section class="our-mission">
+        <h2>OUR SERVICES</h2>
+        <div class="mission-container">
+            <div class="mission-box">
+                <div class="mission-number">01</div>
+                <div class="mission-text">
+                    <p><strong>Beginner Tutorials This service offers step-by-step guidance on basic concepts to help users establish a strong foundation in programming. It provides easy-to-follow lessons that introduce key ideas and tools needed for web development.</strong></p>
+                </div>
+            </div>
+            <div class="mission-box">
+                <div class="mission-number">02</div>
+                <div class="mission-text">
+                    <p><strong>HTML Learning Module In this service, users start with HTML, the building block of web development. These tutorials teach how to create the structure and layout of websites, forming the base for further learning. 
+                        CSS Styling Tutorials This service focuses on CSS, which adds design, color, and style to websites. It helps users learn how to enhance the appearance of their projects and make their designs visually appealing.</strong></p>
+                </div>
+            </div>
+            <div class="mission-box">
+                <div class="mission-number">03</div>
+                <div class="mission-text">
+                    <p><strong>JavaScript Functionality Lessons This service covers JavaScript, enabling users to add dynamic features and interactivity to their websites. Tutorials guide learners in creating functional and engaging user experiences.</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
